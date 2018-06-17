@@ -1,0 +1,7 @@
+com\model\Physician.class
+com\repository\PhyRepo.class
+com\service\PhysicianService.class
+com\config\SpringSecurityConfig.class
+com\springApplication\SpringBootWebApplication.class
+com\controller\RetrievePhysicians.class
+com\service\PhysicianServiceImpl.class
