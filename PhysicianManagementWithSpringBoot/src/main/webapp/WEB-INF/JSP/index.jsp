@@ -9,12 +9,12 @@
 </head>
 <body>
 
-<a href="https://localhost:5641/getAll">Click here to get all Users</a> <br> <br>
-<a href="https://localhost:5641/5/get">Click here to get User by ID</a> <br> <br>
-<a href="https://localhost:5641/6/vino/dts">Click here to insert new User</a> <br> <br>
-<a href="https://localhost:5641/6/delete">Click here to delete User without Authentication</a> <br> <br>
-<a href="https://localhost:5641/6/delete">Click here to delete User with Authentication</a> <br> <br>
-<a href="https://localhost:5641/actuators">Click here to get Actuators</a>
+<a href="http://localhost:5641/getAll">Click here to get all Users</a> <br> <br>
+<a href="http://localhost:5641/5/get">Click here to get User by ID</a> <br> <br>
+<a href="http://localhost:5641/6/vino/dts">Click here to insert new User</a> <br> <br>
+<a href="http://localhost:5641/6/delete">Click here to delete User without Authentication</a> <br> <br>
+<a href="http://localhost:5641/6/delete">Click here to delete User with Authentication</a> <br> <br>
+<a href="http://localhost:5641/actuators">Click here to get Actuators</a>
 
 </body>
 </html>

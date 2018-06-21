@@ -1,11 +1,12 @@
 package com.controller;
 
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+
 import com.model.Physician;
 import com.service.PhysicianServiceImpl;
 
@@ -16,13 +17,13 @@ public class RetrievePhysicians {
 	@Autowired
 	PhysicianServiceImpl physicianService;
 
-	@RequestMapping(value = "/")
+/*	@RequestMapping(value = "/")
 	public ModelAndView defaultHomePage() {
 		
 		ModelAndView model = new ModelAndView();
 		model.setViewName("index");
 		return model;
-	}
+	}*/
 
 	@RequestMapping(value = "/getAll")
 	public Iterable<Physician> getAll() {
