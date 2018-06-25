@@ -1,11 +1,14 @@
 package com.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -28,6 +31,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Value("${ldap.enabled}")
 	private String ldapEnabled;
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -48,18 +56,19 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		if(Boolean.parseBoolean(ldapEnabled)) {
 			
 			System.out.println("inside if and the password is "+ldapPrincipalPassword+" and user is "+ldapSecurityPrincipal);
-			/*auth
+			auth
 				.ldapAuthentication()
 				.contextSource()
 					.url(ldapUrls + ldapBaseDn)
 						.managerDn(ldapSecurityPrincipal)
 						.managerPassword(ldapPrincipalPassword)
 					.and()
-						.userDnPatterns(ldapUserDnPattern);*/
-			auth.ldapAuthentication()
-	        .userSearchFilter("uid=*")
-	        .contextSource()
-	        .url(ldapUrls + ldapBaseDn);
+						.userDnPatterns(ldapUserDnPattern).rolePrefix("ADMIN");
+			/*auth
+			.ldapAuthentication()
+			.contextSource()
+				.url(ldapUrls).*/
+			
 			System.out.println("after auth");
 		} else {
 			System.out.println("inside elae and the password is "+ldapPrincipalPassword+" and user is "+ldapSecurityPrincipal);
